@@ -1,0 +1,42 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi", "hii", "hiiiiiiii", "How are you", "Is anyone there", "Hello", "Good day", "hey"],
+         "responses": ["Hello, thanks for visiting", "Good to see you again", "Hi there, how can I help?"],
+         "context_set": ""
+        },
+        {"tag": "goodbye",
+         "patterns": ["Bye", "See you later", "Goodbye"],
+         "responses": ["See you later, thanks for visiting", "Have a nice day", "Bye! Come back again soon."]
+        },
+        {"tag": "opentoday",
+         "patterns": ["open today?", "When do you open today?", "hours today?", "office hours?", "When can I visit?"],
+         "responses": ["We're open every day from 8am-5pm", "Our hours are 8am-5pm every day"],
+         "context_set": ""
+        },
+        {"tag": "courses",
+         "patterns": ["courses are offered?", "offer Mtech?", "offer Msc?", "offer Phd?", "offer Btech?", "offer iMtech", "Degrees offered", "course", "degrees", "degree"],
+         "responses": ["We offer iMtech, Mtech, Msc and Phd.", "Courses offered are iMtech, Mtech, Msc and Phd."],
+         "context_set": ""
+        },
+        {"tag": "sports",
+         "patterns": ["play", "sports facilities?", "badminton", "football", "cricket", "volleyball", "basketball", "court", "Swimming"],
+         "responses": ["We have Football, Cricket, Badminton, Tennis, etc.", "We have all major sport facilities."],
+         "context_set": ""
+        },
+        {"tag": "imtech cse",
+         "patterns": ["cse course", "cse?","How many years", "How many years does it take to complete the imtech cse course?", "In which domains, can i specialize in  cse course?", "Computer Science"],
+         "responses": ["The Integrated M.Tech. program is a 5-year integrated program intended for students who have completed or are completing Plus Two (or equivalent). At the end of five years of the program, successful students get dual degrees of B.Tech and M.Tech.\nThe courses in iMTech CSE cover wide range of core topics including algorithms, automata theory, discrete maths,  Computer Architecture, Digital Design, Computer Networking, Operating systems, and current technology topics such as Artificial intelligence, Machine learning, Approximate algorithms, Software defined network, Real time operating systems and many others."],
+         "context_set": ""
+        },
+        {"tag": "imtech ece",
+         "patterns": ["ece course", "ece ?", "How many years does it take to complete the imtech ece course?", "In which domains, can i specialize in ece course?", "Electronics Communication"],
+         "responses": ["The Integrated M.Tech. program is a 5-year integrated program intended for students who have completed or are completing Plus Two (or equivalent). At the end of five years of the program, successful students get dual degrees of B.Tech and M.Tech.\nThe courses in iMTech ECE cover wide range of core topics including Circuit theory, Digital Communication, Microprocessor and microcontrollers, Computer Architecture, Digital Design, Computer Networking, Operating systems, and current technology topics such as Artificial intelligence, Machine learning, ASIC design, Processor Architecture, VLSI subsystems, Robotics, Real time operating systems and many others."],
+         "context_set": ""
+        },
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful"],
+         "responses": ["Happy to help!", "Any time!", "My pleasure"],
+         "context_set": ""
+        }
+   ]
+}
