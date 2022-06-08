@@ -10,7 +10,6 @@ import random
 import pickle
 import json
 
-
 with open('intents.json') as file:
     data = json.load(file)
 
@@ -22,7 +21,7 @@ except :
     words = []
     labels = []
     docs_x = [] #List of all the different Patterns
-    docs_y = [] #Tag for those patterns indoc_x (What intent it conveys)
+    docs_y = [] #Tag for those patterns in doc_x (What intent it conveys)
 
     for intent in data['intents']:
         for pattern in intent['patterns']:
@@ -86,7 +85,7 @@ net = tflearn.regression(net)
 
 #For Training the Model.. DNN is a type of a neural network
 model = tflearn.DNN(net)
-model.fit(training, output, n_epoch=10000, batch_size=8, show_metric=True) #n_epoch is basically the number of times the model will see the same data
+model.fit(training, output, n_epoch=5000, batch_size=8, show_metric=True) #n_epoch is basically the number of times the model will see the same data
 model.save("model.tflearn")                                               #Rest arg are basically for showcasing  
 
 #We don't want our model to train again and again for each prediction it makes ...
@@ -110,6 +109,7 @@ def bag_of_words(s, words):
 
 
 def chat():
+    context = ""
     print("Start talking with the bot (type quit to stop)!")
     while True:
         inp = input("You: ")
@@ -121,11 +121,24 @@ def chat():
         tag = labels[results_index]
 
         #Checking for the probabiltiy 
-        if results[results_index] > 0.5 :
+        flag = 0;
+        if results[results_index] > 0.7 :
             for tg in data["intents"]:
                 if tg['tag'] == tag:
-                    responses = tg['responses']
-            print( "Chip : " + random.choice(responses))
+                    if 'context_set' in tg:
+                        context = tg['context_set']
+                    if not 'context_filter' in tg:
+                        responses = tg['responses']
+                    if('context_filter' in tg and tg['context_filter'] == context):
+                        responses = tg['responses']
+                        break 
+                    elif('context_filter' in tg and context == "") :
+                        flag = 1
+                    # responses = tg['responses']
+            if flag==0 :   
+                print( "Chip : " + random.choice(responses))
+            else :   
+                print( "Chip : What course you want to know about ?") 
         else:
             print("Chip : I didn't get that. Try another question !")
 
